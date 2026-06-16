@@ -1,0 +1,106 @@
+.header_class {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-xl);
+    height: var(--header-height);
+    z-index: var(--z-header);
+    background: transparent;
+    transition: background var(--transition-base), box-shadow var(--transition-base), height var(--transition-base);
+
+    img {
+        height: 42px;
+        width: auto;
+        transition: height var(--transition-base);
+    }
+
+    &.scrolled {
+        height: 64px;
+        background: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(12px);
+        box-shadow: var(--shadow-md);
+
+        img {
+            height: 34px;
+        }
+    }
+
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--color-white);
+        cursor: pointer;
+        z-index: 101;
+
+        @media (max-width: 768px) {
+            display: block;
+        }
+    }
+
+    nav {
+        @media (max-width: 768px) {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--color-dark-secondary);
+            box-shadow: var(--shadow-lg);
+            transition: right var(--transition-base);
+            padding-top: var(--header-height);
+
+            &.open {
+                right: 0;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-md);
+                padding: var(--space-lg);
+            }
+
+            a {
+                font-family: var(--font-body);
+                font-size: var(--fs-base);
+                font-weight: var(--fw-medium);
+                color: var(--color-white);
+                text-decoration: none;
+                position: relative;
+                padding: var(--space-xs) 0;
+                transition: color var(--transition-fast);
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: var(--gradient-primary);
+                    transition: width var(--transition-base);
+                }
+
+                &:hover {
+                    color: var(--color-primary);
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
