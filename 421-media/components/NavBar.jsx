@@ -5,15 +5,11 @@ import "../styles/NavBar.scss"
 const navLinks = [
     {
         name: "Home",
-        url: "/"
+        url: "#home"
     },
     {
         name: "About",
         url: "#about"
-    },
-    {
-        name: "Contact",
-        url: "#contact"
     },
     {
         name: "Services",

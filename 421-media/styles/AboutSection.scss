@@ -1,0 +1,189 @@
+.about-section {
+    background: var(--color-dark);
+    padding: var(--space-4xl) 5vw var(--space-3xl);
+    position: relative;
+    overflow: hidden;
+
+    // Subtle ambient glow top-left, echoing the orange brand
+    &::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        left: -80px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(255, 107, 0, 0.08) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    // ── Two-column layout ─────────────────────────────────
+    .about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3xl);
+        align-items: center;
+        max-width: var(--container-max);
+        margin: 0 auto;
+    }
+
+    // ── Left: Text block ──────────────────────────────────
+    .about-text {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+
+        h2 {
+            font-size: clamp(var(--fs-3xl), 4.5vw, var(--fs-5xl));
+            font-weight: var(--fw-black);
+            color: var(--color-white);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            margin: 0;
+        }
+
+        .about-tagline {
+            font-size: var(--fs-lg);
+            font-weight: var(--fw-medium);
+            color: var(--color-primary);
+            font-style: italic;
+            margin: 0;
+        }
+
+        .about-body {
+            font-size: var(--fs-base);
+            font-weight: var(--fw-light);
+            color: var(--color-gray-light);
+            line-height: 1.8;
+            max-width: 480px;
+            margin: 0;
+        }
+    }
+
+    // ── Right: Image block ────────────────────────────────
+    .about-image {
+        position: relative;
+        border-radius: var(--radius-md);
+        overflow: visible;
+
+        img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+            display: block;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow-lg);
+        }
+
+        // Orange corner accent — the one signature flourish
+        .image-accent {
+            position: absolute;
+            bottom: -12px;
+            right: -12px;
+            width: 60%;
+            height: 60%;
+            border-bottom: 3px solid var(--color-primary);
+            border-right: 3px solid var(--color-primary);
+            border-radius: 0 0 var(--radius-md) 0;
+            z-index: 0;
+            opacity: 0.6;
+        }
+    }
+
+    // ── Stats bar ─────────────────────────────────────────
+    .about-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        max-width: var(--container-max);
+        margin: var(--space-3xl) auto 0;
+        border-top: var(--border-width) solid var(--color-dark-tertiary);
+        padding-top: var(--space-xl);
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+            padding: 0 var(--space-lg);
+
+            // Dividers between stats
+            & + .stat-item {
+                border-left: var(--border-width) solid var(--color-dark-tertiary);
+            }
+
+            .stat-label {
+                font-size: var(--fs-xs);
+                font-weight: var(--fw-semibold);
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: var(--color-gray);
+            }
+
+            .stat-value {
+                font-size: clamp(var(--fs-2xl), 3.5vw, var(--fs-4xl));
+                font-weight: var(--fw-black);
+                color: var(--color-white);
+                line-height: 1;
+                letter-spacing: -0.02em;
+
+                em {
+                    font-style: normal;
+                    color: var(--color-primary);
+                    font-size: 0.75em;
+                    margin-left: 2px;
+                }
+            }
+        }
+    }
+
+    // ── Tablet ────────────────────────────────────────────
+    @media (max-width: 900px) {
+        padding: var(--space-3xl) var(--space-md) var(--space-2xl);
+
+        .about-container {
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+        }
+
+        .about-image img {
+            height: 280px;
+        }
+
+        .about-text .about-body {
+            max-width: 100%;
+        }
+    }
+
+    // ── Mobile ────────────────────────────────────────────
+    @media (max-width: 600px) {
+        .about-stats {
+            grid-template-columns: 1fr;
+            padding-top: var(--space-lg);
+            gap: var(--space-lg);
+
+            .stat-item {
+                padding: 0;
+
+                & + .stat-item {
+                    border-left: none;
+                    border-top: var(--border-width) solid var(--color-dark-tertiary);
+                    padding-top: var(--space-lg);
+                }
+            }
+        }
+
+        .about-image .image-accent {
+            display: none; // too cramped on small screens
+        }
+    }
+
+    // ── Reduced motion ────────────────────────────────────
+    @media (prefers-reduced-motion: reduce) {
+        [data-aos] {
+            transition: none !important;
+            transform: none !important;
+            opacity: 1 !important;
+        }
+    }
+}
