@@ -3,8 +3,6 @@
     padding: var(--space-4xl) 5vw var(--space-3xl);
     position: relative;
     overflow: hidden;
-
-    // Subtle ambient glow top-left, echoing the orange brand
     &::before {
         content: "";
         position: absolute;
@@ -16,7 +14,6 @@
         pointer-events: none;
     }
 
-    // ── Two-column layout ─────────────────────────────────
     .about-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -25,8 +22,6 @@
         max-width: var(--container-max);
         margin: 0 auto;
     }
-
-    // ── Left: Text block ──────────────────────────────────
     .about-text {
         display: flex;
         flex-direction: column;
@@ -178,7 +173,6 @@
         }
     }
 
-    // ── Reduced motion ────────────────────────────────────
     @media (prefers-reduced-motion: reduce) {
         [data-aos] {
             transition: none !important;

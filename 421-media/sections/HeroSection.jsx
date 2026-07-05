@@ -20,7 +20,7 @@ export default function HeroSection() {
     return (
         <section id="home" className="hero-section">
             <video
-                src="/hero.mp4"
+                src="/421 TREND.mp4"
                 loop
                 autoPlay
                 muted

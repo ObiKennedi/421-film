@@ -5,7 +5,8 @@ import {
     FaFacebookF,
     FaYoutube,
     FaWhatsapp,
-    FaInstagram
+    FaInstagram,
+    FaTiktok
 } from "react-icons/fa";
 
 
@@ -13,7 +14,7 @@ const SOCIALS = [
     {
         name: "Facebook",
         handle: "@421films",
-        url: "https://www.facebook.com/421films",
+        url: "https://www.facebook.com/share/18ra3cJrrG/",
         icon: <FaFacebookF />,
     },
     {
@@ -25,7 +26,7 @@ const SOCIALS = [
     {
         name: "WhatsApp",
         handle: "Chat with us",
-        url: "https://wa.me/2348000000000",
+        url: "https://wa.me/23409059875508",
         icon: <FaWhatsapp />,
     },
     {
@@ -33,6 +34,12 @@ const SOCIALS = [
         handle: "@421filmsworldwide",
         url: "https://www.instagram.com/421filmsworldwide",
         icon: <FaInstagram />,
+    },
+    {
+        name: "Tiktok",
+        handle: "@421filmsworldwide",
+        url: "https://www.facebook.com/share/18ra3cJrrG/",
+        icon: <FaTiktok />,
     },
 ];
 const INFO = [
@@ -43,8 +50,8 @@ const INFO = [
     },
     {
         label: "WhatsApp",
-        value: "+234 800 000 0000",
-        url: "https://wa.me/2348000000000",
+        value: "+234 0905 987 5508",
+        url: "https://wa.me/23409059875508",
         icon: <FaWhatsapp size={18} />,
     },
     {
