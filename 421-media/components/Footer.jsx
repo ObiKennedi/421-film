@@ -68,7 +68,7 @@ export default function Footer() {
                 {/* Col 1 — Brand */}
                 <div className="footer-brand">
                     <div className="footer-logo">
-                        <img src="/logo.png" alt="421 Films logo" />
+                        <img src="/421_FILMS1.png" alt="421 Films logo" />
                     </div>
                     <p className="footer-tagline">
                         The thrill is here. We craft advert videos, trailers, montages,

@@ -43,7 +43,7 @@ const NavBar = () => {
 
     return (
         <header className={`header_class ${isScrolled ? "scrolled" : ""}`}>
-            <img src="/logo.png" alt="421 Media" />
+            <img src={isScrolled ? "/421_FILMS1.png" : "/logo.png"} alt="421 Media" />
 
             <button className="mobile-menu-btn" onClick={() => setOpen(!open)}>
                 {open ? <X size={24} /> : <Menu size={24} />}
