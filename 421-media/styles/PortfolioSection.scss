@@ -236,6 +236,49 @@
         }
     }
 
+    // ── Show more / less ──────────────────────────────────
+    .portfolio-showmore {
+        max-width: var(--container-max);
+        margin: var(--space-lg) auto 0;
+        display: flex;
+        justify-content: center;
+
+        .showmore-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.8rem;
+            font-size: var(--fs-sm);
+            font-weight: var(--fw-semibold);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border-radius: var(--radius-full);
+            border: var(--border-width) solid var(--color-dark-tertiary);
+            background: transparent;
+            color: var(--color-gray);
+            cursor: pointer;
+            transition:
+                color var(--transition-fast),
+                border-color var(--transition-fast);
+
+            svg {
+                width: 16px;
+                height: 16px;
+                transition: transform var(--transition-base);
+            }
+
+            &:hover {
+                color: var(--color-primary);
+                border-color: var(--color-primary);
+            }
+
+            // Chevron flips when expanded
+            &--open svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
     // ── Footer CTA ────────────────────────────────────────
     .portfolio-footer {
         max-width: var(--container-max);
@@ -309,5 +352,7 @@
         }
 
         .play-btn { transition: none; }
+
+        .showmore-btn svg { transition: none; }
     }
 }

@@ -3,6 +3,9 @@ import { useState } from "react";
 
 const filters = ["All", "Adverts", "Documentary", "Events", "Animation"];
 
+// How many cards show before the "Show More" expander
+const INITIAL_VISIBLE = 8;
+
 const projects = [
     {
         id: 1,
@@ -68,6 +71,138 @@ const projects = [
         duration: "Live Event",
         tall: true,
     },
+
+    // ── New videos ────────────────────────────────────────
+    // TODO: replace the placeholder titles, categories, and
+    // duration labels below with the real details per video.
+    {
+        id: 9,
+        title: "421 Films Production 1",
+        category: "Events",
+        youtubeId: "VCGqshLO6hs",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 10,
+        title: "421 Films Production 2",
+        category: "Events",
+        youtubeId: "2XU_XsA09l8",
+        duration: "Film",
+        tall: true,
+    },
+    {
+        id: 11,
+        title: "421 Films Production 3",
+        category: "Events",
+        youtubeId: "0E9I4XZ3RsU",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 12,
+        title: "421 Films Production 4",
+        category: "Events",
+        youtubeId: "URtixVJgugs",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 13,
+        title: "421 Films Production 5",
+        category: "Events",
+        youtubeId: "PzQHKYbHXQc",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 14,
+        title: "421 Films Production 6",
+        category: "Events",
+        youtubeId: "PuNsGrMJ5Bg",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 15,
+        title: "421 Films Production 7",
+        category: "Events",
+        youtubeId: "dXiItGAXI_8",
+        duration: "Film",
+        tall: true,
+    },
+    {
+        id: 16,
+        title: "421 Films Production 8",
+        category: "Events",
+        youtubeId: "mwkGnoGHkY4",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 17,
+        title: "421 Films Production 9",
+        category: "Events",
+        youtubeId: "AtAbM5XE32A",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 18,
+        title: "421 Films Production 10",
+        category: "Events",
+        youtubeId: "GD-3Gy3DG-o",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 19,
+        title: "421 Films Production 11",
+        category: "Events",
+        youtubeId: "rpb36JA23J0",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 20,
+        title: "421 Films Production 12",
+        category: "Events",
+        youtubeId: "Or6xB58cXjw",
+        duration: "Film",
+        tall: true,
+    },
+    {
+        id: 21,
+        title: "421 Films Production 13",
+        category: "Events",
+        youtubeId: "F0Qu16v4a0I",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 22,
+        title: "421 Films Production 14",
+        category: "Events",
+        youtubeId: "P03uc1vmZF8",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 23,
+        title: "421 Films Production 15",
+        category: "Events",
+        youtubeId: "huT8gJyid2o",
+        duration: "Film",
+        tall: false,
+    },
+    {
+        id: 24,
+        title: "421 Films Production 16",
+        category: "Events",
+        youtubeId: "Cdt0LYhauCc",
+        duration: "Film",
+        tall: false,
+    },
 ];
 
 function getThumb(youtubeId) {
@@ -77,10 +212,19 @@ function getThumb(youtubeId) {
 export default function PortfolioSection() {
     const [active, setActive] = useState("All");
     const [playing, setPlaying] = useState(null); // youtubeId of open modal
+    const [expanded, setExpanded] = useState(false);
 
-    const visible = active === "All"
+    const filtered = active === "All"
         ? projects
         : projects.filter(p => p.category === active);
+
+    const visible = expanded ? filtered : filtered.slice(0, INITIAL_VISIBLE);
+    const hiddenCount = filtered.length - INITIAL_VISIBLE;
+
+    const handleFilter = (f) => {
+        setActive(f);
+        setExpanded(false); // collapse again when switching category
+    };
 
     return (
         <section id="portfolio" className="portfolio-section">
@@ -98,7 +242,7 @@ export default function PortfolioSection() {
                     <button
                         key={f}
                         className={`filter-btn${active === f ? " filter-btn--active" : ""}`}
-                        onClick={() => setActive(f)}
+                        onClick={() => handleFilter(f)}
                     >
                         {f}
                     </button>
@@ -112,7 +256,7 @@ export default function PortfolioSection() {
                         key={item.id}
                         className={`portfolio-card${item.tall ? " portfolio-card--tall" : ""}`}
                         data-aos="fade-up"
-                        data-aos-delay={i * 60}
+                        data-aos-delay={Math.min(i, 7) * 60}
                         onClick={() => setPlaying(item.youtubeId)}
                     >
                         <div className="card-thumb">
@@ -142,6 +286,22 @@ export default function PortfolioSection() {
                     </div>
                 ))}
             </div>
+
+            {/* Show more / less */}
+            {hiddenCount > 0 && (
+                <div className="portfolio-showmore">
+                    <button
+                        className={`showmore-btn${expanded ? " showmore-btn--open" : ""}`}
+                        onClick={() => setExpanded(v => !v)}
+                        aria-expanded={expanded}
+                    >
+                        {expanded ? "Show Less" : `Show ${hiddenCount} More`}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+                </div>
+            )}
 
             {/* Footer CTA */}
             <div className="portfolio-footer" data-aos="fade-up">
