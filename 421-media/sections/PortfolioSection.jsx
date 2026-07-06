@@ -63,20 +63,11 @@ const projects = [
         duration: "Ad",
         tall: false,
     },
-    {
-        id: 8,
-        title: "Candle Light Service — Ikechukwu Onuoha Kingsley",
-        category: "Events",
-        youtubeId: "Rxx-RXMfT1w",
-        duration: "Live Event",
-        tall: true,
-    },
-
     // ── New videos ────────────────────────────────────────
     // TODO: replace the placeholder titles, categories, and
     // duration labels below with the real details per video.
     {
-        id: 9,
+        id: 8,
         title: "421 Films Production 1",
         category: "Events",
         youtubeId: "VCGqshLO6hs",
@@ -84,7 +75,7 @@ const projects = [
         tall: false,
     },
     {
-        id: 10,
+        id: 9,
         title: "421 Films Production 2",
         category: "Events",
         youtubeId: "2XU_XsA09l8",
@@ -92,7 +83,7 @@ const projects = [
         tall: true,
     },
     {
-        id: 11,
+        id: 10,
         title: "421 Films Production 3",
         category: "Events",
         youtubeId: "0E9I4XZ3RsU",
@@ -100,7 +91,7 @@ const projects = [
         tall: false,
     },
     {
-        id: 12,
+        id: 11,
         title: "421 Films Production 4",
         category: "Events",
         youtubeId: "URtixVJgugs",
@@ -108,7 +99,7 @@ const projects = [
         tall: false,
     },
     {
-        id: 13,
+        id: 12,
         title: "421 Films Production 5",
         category: "Events",
         youtubeId: "PzQHKYbHXQc",
@@ -116,7 +107,7 @@ const projects = [
         tall: false,
     },
     {
-        id: 14,
+        id: 13,
         title: "421 Films Production 6",
         category: "Events",
         youtubeId: "PuNsGrMJ5Bg",
@@ -124,7 +115,7 @@ const projects = [
         tall: false,
     },
     {
-        id: 15,
+        id: 14,
         title: "421 Films Production 7",
         category: "Events",
         youtubeId: "dXiItGAXI_8",
@@ -132,7 +123,7 @@ const projects = [
         tall: true,
     },
     {
-        id: 16,
+        id: 15,
         title: "421 Films Production 8",
         category: "Events",
         youtubeId: "mwkGnoGHkY4",
@@ -140,7 +131,7 @@ const projects = [
         tall: false,
     },
     {
-        id: 17,
+        id: 16,
         title: "421 Films Production 9",
         category: "Events",
         youtubeId: "AtAbM5XE32A",
@@ -148,7 +139,7 @@ const projects = [
         tall: false,
     },
     {
-        id: 18,
+        id: 17,
         title: "421 Films Production 10",
         category: "Events",
         youtubeId: "GD-3Gy3DG-o",
