@@ -63,9 +63,6 @@ const projects = [
         duration: "Ad",
         tall: false,
     },
-    // ── New videos ────────────────────────────────────────
-    // TODO: replace the placeholder titles, categories, and
-    // duration labels below with the real details per video.
     {
         id: 8,
         title: "421 Films Production 1",
