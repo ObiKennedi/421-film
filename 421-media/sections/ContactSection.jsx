@@ -196,6 +196,7 @@ export default function ContactSection() {
                                     <option>Product Description Video</option>
                                     <option>Whiteboard Animation</option>
                                     <option>Documentary</option>
+                                    <option>Livestream</option>
                                     <option>Other</option>
                                 </select>
                             </div>
