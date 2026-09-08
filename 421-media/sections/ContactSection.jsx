@@ -1,13 +1,12 @@
 import "../styles/ContactSection.scss";
 import { useState } from "react";
-import { MapPin, Clock } from "lucide-react"
+import { MapPin, Clock, Mail } from "lucide-react";
 import {
     FaFacebookF,
     FaYoutube,
     FaWhatsapp,
     FaInstagram,
-    FaTiktok,
-    Mail
+    FaTiktok
 } from "react-icons/fa";
 
 
