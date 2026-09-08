@@ -6,7 +6,8 @@ import {
     FaYoutube,
     FaWhatsapp,
     FaInstagram,
-    FaTiktok
+    FaTiktok,
+    Mail
 } from "react-icons/fa";
 
 
@@ -55,6 +56,12 @@ const INFO = [
         icon: <FaWhatsapp size={18} />,
     },
     {
+        label: "Email",
+        value: "contact@421filmsworld.com",
+        url: "mailto:contact@421filmsworld.com",
+        icon: <Mail size={18} />,
+    },
+    {
         label: "Hours",
         value: "Always Open",
         icon: <Clock size={18} />,
@@ -78,7 +85,7 @@ export default function ContactSection() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    access_key: "YOUR_WEB3FORMS_ACCESS_KEY", // 🔑 replace this
+                    access_key: "09987fc2-83a5-4e98-ae4a-e6da8d45acb", // 🔑 replace this
                     subject: `New enquiry from ${formData.name} — 421 Films`,
                     from_name: "421 Films Website",
                     ...formData,
